@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   Global styles — EmailWriterAI.co.uk
+   Minimal, high-contrast, accessible. British English UI copy lives in
+   src/lib/i18n/british-english.ts; visual tokens live in tailwind.config.ts.
+   ------------------------------------------------------------------ */
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink;
+  }
+
+  /* Visible focus ring for keyboard navigation (WCAG 2.1 AA). */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-paper;
+  }
+}
+
+@layer components {
+  /* Shared container used across all pages. */
+  .container-site {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  /* Primary call-to-action button with a subtle hover lift. */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-card bg-brand-600 px-7 py-3.5
+      text-base font-semibold text-white shadow-soft transition-all duration-200
+      hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-lift
+      active:translate-y-0 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-card border border-ink/10 bg-paper
+      px-7 py-3.5 text-base font-semibold text-ink transition-all duration-200
+      hover:-translate-y-0.5 hover:border-ink/20 hover:shadow-soft active:translate-y-0;
+  }
+
+  /* Legal/long-form typography for privacy, terms, cookies pages. */
+  .legal-prose h2 {
+    @apply mt-10 mb-3 text-xl font-semibold text-ink;
+  }
+  .legal-prose h3 {
+    @apply mt-6 mb-2 text-lg font-semibold text-ink;
+  }
+  .legal-prose p {
+    @apply mb-4 leading-relaxed text-ink-soft;
+  }
+  .legal-prose ul {
+    @apply mb-4 list-disc space-y-1.5 pl-6 text-ink-soft;
+  }
+  .legal-prose a {
+    @apply text-brand-600 underline underline-offset-2 hover:text-brand-700;
+  }
+}

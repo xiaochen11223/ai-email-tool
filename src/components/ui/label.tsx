@@ -1,0 +1,15 @@
+/**
+ * Label — form label tied to a control via htmlFor (WCAG 2.1 AA).
+ */
+
+import type { LabelHTMLAttributes } from "react";
+import { cn } from "@/lib/utils";
+
+export function Label({ className, ...props }: LabelHTMLAttributes<HTMLLabelElement>) {
+  return (
+    <label
+      className={cn("mb-2 block text-sm font-semibold text-ink", className)}
+      {...props}
+    />
+  );
+}
